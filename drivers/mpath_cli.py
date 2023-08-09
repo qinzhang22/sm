@@ -25,7 +25,7 @@ class MPathCLIFail(Exception):
         return
 
     def __str__(self):
-        print("", "MPath CLI failed")
+        return print("", "MPath CLI failed")
 
 mpathcmd = ["/usr/sbin/multipathd", "-k"]
 
