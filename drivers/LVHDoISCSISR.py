@@ -467,8 +467,8 @@ class LVHDoISCSISR(LVHDSR.LVHDSR):
                 i._attach_LUN_bySCSIid(self.SCSIid)
 
             # Check if at least one iscsi succeeded
-            if not connected:
-                raise stored_exception
+            if not connected and stored_exception:
+                raise stored_exception   # pylint: disable=raising-bad-type
 
             if 'multiSession' in self.dconf:
                 # Force a manual bus refresh
